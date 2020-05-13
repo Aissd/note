@@ -1,0 +1,1 @@
+axios库，是基于promist的http库，可运行在浏览器和node.js中。

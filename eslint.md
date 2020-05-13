@@ -1,0 +1,1 @@
+1、"prettier/prettier": "off"
