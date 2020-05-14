@@ -16,6 +16,13 @@ git commit -m "Initial commit"
 // 推送到远程仓库
 git push -u origin master
 
+快速删除node_modules目录
+cnpm install rimraf -g
+rimraf node_modules
+
+切换到指定版本
+git reset 版本号
+
 
 ```
 

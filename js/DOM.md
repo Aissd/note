@@ -8,19 +8,21 @@
 document.body.nodeType;
 ```
 
-
-
 2、获取某元素下所有直接子节点
 
 ```
 document.body.childNodes;
 ```
 
-
-
 3、获取某元素下所有属性
 
 ```
 document.getElementById(#id).attributes
+```
+
+4、移除子元素
+
+```
+
 ```
 
