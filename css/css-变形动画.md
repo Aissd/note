@@ -24,3 +24,27 @@ http://houdunren.gitee.io/note/css/12%20%E5%8F%98%E5%BD%A2%E5%8A%A8%E7%94%BB.htm
 <span>hdcms</span>
 ```
 
+css进阶之动画
+
+https://zhuanlan.zhihu.com/p/50910069
+
+2、transition只能做单个动作，如果动画包含多个动作，那就需要animation
+
+
+
+3、transform直译为变换，它和动画无关，transition是一个状态到另一个状态的变化过程，而transform仅仅是静止的最终状态。
+
+
+
+4、transform原点位于元素中心
+
+css元素默认的坐标系，原点在左上角；
+
+transform变换原点位于元素中心；
+
+
+
+5、perspective（透视），可简单理解为眼睛离屏幕的距离
+
+
+
