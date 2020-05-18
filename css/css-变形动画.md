@@ -48,3 +48,56 @@ transform变换原点位于元素中心；
 
 
 
+6、多个动画
+
+animation-name: xxx,yyy ;
+
+animation-duration: 4s, 2s;
+
+animation-name: xxx,yyy,zzz; xxx用4s，yyy用2s，zzz用4s // 重头计算
+
+若xxx与yyy有相同的动画动作，放在后面的yyy的动画动作权重更高
+
+animation-iteration-count: 1, 2, 3 // 动画播放次数
+
+
+
+7、transform: scale(0) // 缩放成0，等同于消失
+
+
+
+8、不是所有属性都能产生动画，比如border的solid变成double，宽度的auto变成300px，因为他们没有明确的中间值
+
+9、animation-direction动画方向四种模式
+
+normal 0%- 100%，100%瞬间回到0%
+
+reverse 100% - 0%，0%瞬间回到100%
+
+alternate 0%- 100%，100%逐渐回到0%
+
+alternate 100% - 0%，0%逐渐回到100%
+
+10、animation-fill-mode: forwards; // 保留到100%帧的状态
+
+
+
+11、animation-fill-mode: backwards; // 当动画没动的时候，使用起始值状态
+
+
+
+12、currentColor，css3的关键字，获取使用该关键字的元素（如果没有就是最近的父元素）的color属性的颜色值；
+
+
+
+13、emmit 
+
+div{$}*8 -> 生成出8个div，且每个div有数字序号1-8
+
+
+
+14、
+
+animation-timing-function: steps(4, start); // 起始就运动，所以第一个step不可见，从第二个step开始，最后一个step可见
+
+animation-timing-function: steps(4, end); // 起始就是初始，开始可见，从第一个step开始，最后一个step不可见
