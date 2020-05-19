@@ -1,0 +1,14 @@
+1、Object.freeze()
+
+```
+const obj = {
+	host: 'http://localhost',
+	port: 80
+};
+Object.freeze(obj);
+obj.port = 8080; // 无法修改，但不会报错，如果需要有提示，可以使用严格模式 "use strict" 声明。
+```
+
+
+
+2、
