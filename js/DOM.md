@@ -26,3 +26,17 @@ document.getElementById(#id).attributes
 
 ```
 
+5、查找元素
+
+```
+document.querySelector('#id');
+document.querySelector('.className');
+document.querySelector("[name='password']");
+```
+
+6、创建元素
+
+```
+document.createElement('div');
+```
+
