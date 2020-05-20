@@ -33,3 +33,38 @@ Object.keys(colorMap).forEach((item, index, array) => {
 });
 ```
 
+
+
+2、杨辉三角形
+
+```
+function star(row = 5) {
+    for(let i = 0; i < row; i++) {
+        for(let j = 0; j < i; j++) {
+            document.write('*');
+        }
+        document.write('<br />');
+    }
+}
+star(10);
+```
+
+
+
+3、标签 - 例子里的parent 和 son
+
+双重循环，可以用标签来设置break或者continue跳到哪去
+
+```
+parent: for(let i = 1; 1<= 10; i++) {
+	son: for(let n = 1; n <= 10; n++) {
+		if(n % 2 == 0) {
+			console.log(i, n);
+		}
+		if(n + i > 10) {
+			break parent;
+		}
+	}
+}
+```
+
