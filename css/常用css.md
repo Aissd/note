@@ -120,3 +120,11 @@ element::-moz-selection {
 }
 ```
 
+9、颜色渐变
+
+```
+background: linear-gradient(to right, red, blue);
+-webkit-background-clip: text;
+color: transparent;
+```
+

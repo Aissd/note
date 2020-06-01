@@ -36,3 +36,5 @@ Vue 提供了另外一种定义模板的方式，在 <script> 标签里使用 te
         template:'#my-component'
     })
 ```
+
+4、computed

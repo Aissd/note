@@ -1,4 +1,4 @@
-1、
+1、Array.from() - 转化成数组
 
 ```
 Array.from()
@@ -27,16 +27,12 @@ Array.prototype.map.call(div, function(item) {
 
 Array.slice(); // 不改变原数组
 
-
-
 ```
 let arr = [1,2,3,4,5];
 console.log(arr.slice()); // [1,2,3,4,5] 浅拷贝一个数组
 console.log(arr.slice(1)); // [2,3,4,5] 从第一个位置开始，截取到最后一个
 console.log(arr.slice(1,2)); // [2] 第一个开始，截到第二个
 ```
-
-
 
 Array.splice(); // 改变原数组
 
@@ -131,8 +127,8 @@ console.log(index); // 0
 ```
 let arr = [3,7,5,9,1];
 arr = arr.sort(function(a, b) {
-	// a - b： -1的话，从小到大
-	// b - a： 1的话，从大到小
+	// a - b： -1的话，从小到大（升序）
+	// b - a： 1的话，从大到小（降序）
 	return a - b;
 });
 ```
