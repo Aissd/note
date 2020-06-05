@@ -1,4 +1,46 @@
-1、用阴影做边框
+%scroll {
+
+  overflow-x: hidden;
+
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+
+​    /*滚动条整体样式*/
+
+​    width: 5px;
+
+​    /*高宽分别对应横竖滚动条的尺寸*/
+
+​    height: 5px;
+
+  }
+
+  &::-webkit-scrollbar-thumb {
+
+​    /*滚动条里面小方块*/
+
+​    border-radius: 5px;
+
+​    box-shadow: inset 0 0 5px rgba(47, 203, 235, .5);
+
+​    background: rgba(47, 203, 235, .5);
+
+  }
+
+  &::-webkit-scrollbar-track {
+
+​    /*滚动条里面轨道*/
+
+​    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1);
+
+​    border-radius: 0;
+
+​    background: rgba(255, 255, 255, 0.1);
+
+  }
+
+}1、用阴影做边框
 
 ```
 box-shadow: 0 0 1px #2685E5 inset;
@@ -120,11 +162,44 @@ element::-moz-selection {
 }
 ```
 
-9、颜色渐变
+9、字体颜色渐变
 
 ```
 background: linear-gradient(to right, red, blue);
 -webkit-background-clip: text;
 color: transparent;
+```
+
+10、滚动条样式 - chrome
+
+```
+%scroll {
+	overflow-x: hidden;
+	overflow-y: auto;
+    &::-webkit-scrollbar {
+        /*滚动条整体样式*/
+        width: 5px;
+        /*高宽分别对应横竖滚动条的尺寸*/
+        height: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+        /*滚动条里面小方块*/
+        border-radius: 5px;
+        box-shadow: inset 0 0 5px rgba(47, 203, 235, .5);
+        background: rgba(47, 203, 235, .5);
+    }
+    &::-webkit-scrollbar-track {
+        /*滚动条里面轨道*/
+        box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1);
+        border-radius: 0;
+        background: rgba(255, 255, 255, 0.1);
+	}
+}
+```
+
+11、class前缀选择器
+
+```
+[class^="btn-"] {}
 ```
 

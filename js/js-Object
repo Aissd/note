@@ -9,4 +9,66 @@ Object.freeze(obj);
 obj.port = 8080; // 无法修改，但不会报错，如果需要有提示，可以使用严格模式 "use strict" 声明。
 ```
 
+2、Object.hasOwnProperty() - 查找当前对象是否有某些属性 - 不查找原型链
+
+
+
+3、attr in object - 查找当前对象和原型链
+
+
+
+4、改变原型 - Object.setPrototypeOf(a, b) - 把b改成a的原型
+
+
+
+5、合并两个对象 - Object.assign() 
+
+6、JSON.stringify(res, null, 2); // null - 保留所有属性，2 - tab两位
+
+7、Object的属性特征 - enumerable: true  -  这样可以被遍历，Object.keys输出来；
+
+8、Object的属性特征 - configurable: true - 这样可以被删除或者是修改配置
+
+9、控制不允许向对象添加属性
+
+```
+const user = {};
+Object.preventExtensions(user);
+user.site = 'aaa'; // 无法添加，严格模式下会报错
+
+if(Object.isExtensible(user)) {} // 可以用这个判断是否可以添加属性
+```
+
+10、封闭对象Object.seal(user); - 不允许删除属性，追加属性，定义对象特征
+
+```
+Object.isSealed(); // 判断对象是否处于封闭状态
+```
+
+11、Object.getOwnPropertyDescriptors(user)  - 获取对象的属性特征
+
+12、冻结对象 - Object.freeze(user); - 不允许删除，修改，追加属性，定义对象特征，遍历
+
+```
+Object.isFrozen(user); // 判断是否处于冻结状态
+```
+
+13、对象的访问器
+
+```
+// 访问器伪造属性：
+let obj = {
+	list: [
+		{price: 10},
+		{price: 20},
+		{price: 30},
+		{price: 40}
+	],
+	get total() {
+		return this.list.reduce((total, item) => total + item, 0);
+	}
+};
+
+console.log(obj.total); // 100
+```
 
