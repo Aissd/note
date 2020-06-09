@@ -6,10 +6,6 @@
 
 2、string.trim()  - 移除头尾空格字符串
 
-```
-
-```
-
 3、标签模板
 
 ```
@@ -24,12 +20,7 @@ function links(strings, ...vars) {
     .map((str, key) => {
       return (
         str +
-        (vars[key]
-          ? vars[key].replace(
-              "后盾人",
-              `<a href="https://www.houdunren.com">后盾人</a>`
-            )
-          : "")
+        (vars[key] ? vars[key].replace("后盾人",`<a href="https://www.houdunren.com">后盾人</a>`): "")
       ); 
     })
     .join("");

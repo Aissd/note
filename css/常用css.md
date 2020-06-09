@@ -1,46 +1,29 @@
+```
 %scroll {
-
   overflow-x: hidden;
-
   overflow-y: auto;
-
   &::-webkit-scrollbar {
-
-​    /*滚动条整体样式*/
-
-​    width: 5px;
-
-​    /*高宽分别对应横竖滚动条的尺寸*/
-
-​    height: 5px;
-
+        /*滚动条整体样式*/
+        width: 5px;
+        /*高宽分别对应横竖滚动条的尺寸*/
+        height: 5px;
   }
-
   &::-webkit-scrollbar-thumb {
-
-​    /*滚动条里面小方块*/
-
-​    border-radius: 5px;
-
-​    box-shadow: inset 0 0 5px rgba(47, 203, 235, .5);
-
-​    background: rgba(47, 203, 235, .5);
-
+        /*滚动条里面小方块*/
+        border-radius: 5px;
+        box-shadow: inset 0 0 5px rgba(47, 203, 235, .5);
+        background: rgba(47, 203, 235, .5);
   }
-
   &::-webkit-scrollbar-track {
-
-​    /*滚动条里面轨道*/
-
-​    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1);
-
-​    border-radius: 0;
-
-​    background: rgba(255, 255, 255, 0.1);
-
+        /*滚动条里面轨道*/
+        box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1);
+        border-radius: 0;
+        background: rgba(255, 255, 255, 0.1);
   }
+}
+```
 
-}1、用阴影做边框
+1、用阴影做边框
 
 ```
 box-shadow: 0 0 1px #2685E5 inset;
@@ -203,3 +186,4 @@ color: transparent;
 [class^="btn-"] {}
 ```
 
+12、currentColor，css3的关键字，获取使用该关键字的元素（如果没有就是最近的父元素）的color属性的颜色值；

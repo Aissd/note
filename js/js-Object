@@ -11,15 +11,9 @@ obj.port = 8080; // 无法修改，但不会报错，如果需要有提示，可
 
 2、Object.hasOwnProperty() - 查找当前对象是否有某些属性 - 不查找原型链
 
-
-
 3、attr in object - 查找当前对象和原型链
 
-
-
 4、改变原型 - Object.setPrototypeOf(a, b) - 把b改成a的原型
-
-
 
 5、合并两个对象 - Object.assign() 
 
@@ -53,7 +47,7 @@ Object.isSealed(); // 判断对象是否处于封闭状态
 Object.isFrozen(user); // 判断是否处于冻结状态
 ```
 
-13、对象的访问器
+13、对象的属性访问器
 
 ```
 // 访问器伪造属性：
@@ -70,5 +64,61 @@ let obj = {
 };
 
 console.log(obj.total); // 100
+```
+
+14、查找原型（父亲）
+
+```
+let obj = {};
+Object.getPrototypeof(obj);
+```
+
+15、创建一个没有原型的对象
+
+```
+// 第一次参数是指定的原型，传null则没有
+let obj = Object.create(null, {
+	name: {
+		value: 'hd'
+	}
+});
+console.log(obj);
+```
+
+16、一般是实例调用
+
+```
+function User() {}
+let user = new User();
+user.__proto__.view = function() {
+	console.log('123');
+}
+```
+
+17、prototype一般是对象（Object，Function...）调用
+
+```
+User.prototype.show = function() {
+	console.log('abc');
+}
+```
+
+```
+let o = {};
+o.__proto__ == Object.prototype; // true
+```
+
+18、给对象设置原型
+
+```
+let hd = { name: 'hd' };
+let parent = { name: 'parent' };
+Object.setPrototype(hd, parent); // 给hd设置原型，为parent
+```
+
+19、super
+
+```
+super == this.__proto__
 ```
 
