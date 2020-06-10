@@ -15,3 +15,16 @@ https://github.com/ElementUI/theme-preview
 3）把关键词再换回刚刚生成的相应的颜色值：https://github.com/ElementUI/theme-preview/blob/master/src/utils/color.js
 
 4）直接在页面上加 `style` 标签，把生成的样式填进去：https://github.com/ElementUI/theme-preview/blob/master/src/app.vue#L198-L211
+
+
+
+
+
+编译主题
+
+```
+et // 默认编译的主题目录是放到./theme下
+
+et -o public/theme // 改到public/theme目录下
+```
+
