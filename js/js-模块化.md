@@ -1,0 +1,143 @@
+1、模块化历史
+
+```
+AMD		  - require.js
+CMD		  - sea.js（淘宝）
+Commonjs  - node.js
+UMD       - 支持AMD和Commonjs
+```
+
+2、模块化特点
+
+```
+1）有独立作用域
+2）可暴露出部分函数
+3）默认启用严格模式
+4）运作机制 - 后解析，无关顺序（是否标签渲染完了）【模块延迟解析】（所有模块先全部加载，解析，再工作）
+5）预解析（引入即执行，无论后面重复引入几次，都不再执行）
+```
+
+3、立即执行函数实现模块化
+
+```
+let module = (function() {
+	const moduleList = {}; // 依赖模块的容器
+	// name - 模块的名称
+	// modules - 要依赖的模块
+	// action - 动作
+	function define(name, modules, action) {
+		moduleList[name] = action.apply(null, modules); // 往容器里加依赖模块
+	}
+	return { define };
+})();
+
+module.define('hd', [], function() {
+	
+});
+```
+
+4、模块的基本使用
+
+```
+// index.html
+<script src="hd.js"></script>
+<script type="module"> // 需要加上type="module"，定义成模块
+	import { title, url, show } from './hd.js'; // 具名导入
+	console.log(title); // 后盾人
+	console.log(url); // 没有暴露url，所以报错
+	show(); // 向军
+</script>
+```
+
+```
+// hd.js
+let title = '后盾人';
+let utl = 'houdunren.com';
+function show() {
+	console.log('向军');
+}
+export { title, show }; // 只暴露了title，show函数，所以url引用不到的
+```
+
+5、模块的批量导入
+
+```
+// 以4的index.html和hd.js举例
+<script type="module">
+	import * as api from 'hd.js';
+	console.log(api.title); // 后盾人
+	api.show(); // 向军
+</script>
+
+// 这种方法有一定缺陷，打包工具会把hd.js里面暴露出来的方法全部打包，不管你用了几个，增加了文件的体积
+```
+
+6、模块的导入的别名使用
+
+```
+// 以4的index.html和hd.js举例
+<script type="module">
+	import { title as t } from 'hd.js';
+	let title = 'hdcms.com'; // 不用别名，会跟这个同名，所以会报错
+	console.log(t); // 后盾人
+</script>
+```
+
+7、模块导出的别名使用
+
+```
+// 以4的index.html和hd.js举例
+
+// hd.js
+export { title as t, show };
+
+// index.html
+<script type="module">
+	import { t } from 'hd.js';
+	console.log(t); // 后盾人
+</script>
+```
+
+8、default默认导出
+
+```
+// a.js
+export default Admin {};
+
+// a.html
+<script type="module">
+	import aaa from 'a.js'; // 默认导出时，aaa变量可以不必跟到导出的名字一致
+</script>
+```
+
+9、混合导入导出
+
+```
+// b.js
+export let site = '后盾人';
+export default class User {
+	static render() {
+		return 'user static render';
+	}
+}
+
+// b.html
+<script type="module">
+	import { site }, User from 'b.js'; // {}包裹的是具名导出，没有的则是默认导出
+</script>
+
+```
+
+10、模块的合并导出
+
+```
+// index.js
+import Admin from 'a.js';
+import { site }, User from 'b.js';
+export { site, User, Admin };
+
+// temp.js
+import { site, User, Admin } from 'index.js';
+```
+
+11、按需动态加载模块

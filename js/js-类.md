@@ -188,6 +188,156 @@ console.log(hd);
 8、静态继承 原理
 
 ```
+function User() {} // 既是函数也是对象
+User.show = function() { // 静态函数
+	console.log('User.static.method');
+}
+User.site = 'hdcms.com'; // 静态属性
 
+function Admin() {}
+Admin.__proto__ = User; // Admin的__proto__属性指向User
+Admin.show(); // User.static.method
+console.log(Admin.site); // hdcms.com
+```
+
+```
+class User {
+	static show() {
+		console.log('User.static.show');
+	}
+	site: 'hdcms.com'
+}
+
+class Admin extends User {}
+Admin.show(); // User.static.method
+consoloe.dir(Admin.site); // hdcms.com
+```
+
+9、instanceof 检测原型链
+
+![image-20200611122303778](C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20200611122303778.png)
+
+```
+function User() {}
+function Admin() {}
+Admin.prototype = Object.create(User.prototype);
+let hd = new Admin();
+
+console.log(hd instanceof Admin); // true - Admin在hd的原型链上
+console.log(hd instanceof User); // true - User在hd的原型链上
+console.log(hd.__proto__ == Admin.prototype); // true - hd的__proto__与Admin的原型是同一个
+console.log(hd.__proto__.__proto__ == Admin.prototype.__proto__); // true
+console.log(Admin.prototype.__proto__.__proto__.__proto__); // null - 原型链到头了
+
+查找是否在原型链上
+function checkPrototype(obj, constructor) {
+	if(!obj.__proto__) return false;
+	if(obj.__proto__ == constructor.prototype) return true;
+	return checkPrototype(obj.__proto__, constructor);
+}
+
+console.log(checkPrototype(hd, Admin)); // true
+console.log(checkPrototype(hd, User)); // true
+```
+
+10、isPrototypeOf 检测继承关系
+
+```
+let a = {};
+let b = {
+	__proto__: a // 继承a
+};
+let c = {
+	__proto__: b // 继承b
+};
+console.log(a.isPrototypeOf(b)); // true - b是不是由a实现的（a是否存在于b的原型链上）
+console.log(a.isPrototypeOf(c)); // true - c是不是由a实现的（a是否存在于c的原型链上）
+console.log(c.isPrototypeOf(a)); // false - a是不是有c实现的（c是否存在于a的原型链上）
+```
+
+```
+class Common {}
+class User extends Common {}
+class Admin extends User {} 
+let hd = new Admin();
+console.log(Admin.prototype.isPrototypeOf(hd)); // true - hd是不是有Admin的原型实现的（Admin的原型是否存在于hd的原型上）
+console.log(Common.prototype.isPrototypeOf(hd)); // true - hd是不是有Common的原型实现的（Common的原型是否存在于hd的原型上）
+```
+
+11、使用原型增强内置类的实现（增强，扩充内置类）
+
+```
+// 原型方式实现
+function Arr(...args) {
+	args.forEach(item => this.push(item)); // 把数据都放进Arr
+	// 扩充 - 获取数组第一个元素
+	this.first = function() {
+		return this[0];
+	}
+	// 扩充 - 获取数组中的最大值
+	this.max = function() {
+		return this.sort((a, b) => b - a)[0];
+	}
+}
+
+Arr.prototype = Object.create(Array.prototype); // Arr继承内置的Array
+let hd = new Arr(99, 1, 2, 3, 4, 56, 195);
+console.log(hd.max()); // 195
+console.log(hd.first()); // 99
+```
+
+12、使用class增强内置类的实现
+
+```
+class Arr extends Array {
+	constructor(...args) { // 若没有传入参数，可以不写这个构造函数
+		super(...args);
+	}
+	first() {
+		return this[0];
+	}
+	max() {
+		return this.sort((a, b) => b - a)[0];
+	}
+}
+
+let hd = new Arr(99, 1, 2, 3, 4, 56, 195);
+console.log(hd.max()); // 195
+console.log(hd.first()); // 99
+```
+
+13、mixin混合模式使用技巧（类似多继承）
+
+```
+let Tool = {
+	max(key) {
+		return this.data.sort((a, b) => b[key] - a[key])[0];
+	}
+}
+let Arr = {
+	count(key) {
+		this.data.reduce((t, c) => t + c[key], 0);
+	}
+}
+class Lesson {
+	constructor(lessons) {
+		this.lessons = lessons;
+	}
+	get data() {
+		return this.lessons;
+	}
+}
+
+const data = [
+	{ name: 'js', price: 100, click: 188 },
+	{ name: 'mysql', price: 212, click" 34 },
+	{ name: 'vue.js', price: 98, click: 89 }
+];
+
+Object.assign(Lesson.prototype, Tool, Arr); // 原型也是对象，往Lesson.prototype添加Tool
+
+let hd = new Lesson(data);
+console.log(hd.max('price')); // { name: 'mysql', price: 212, click" 34 }
+console.log(hd.count('price')); // 410
 ```
 

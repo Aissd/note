@@ -21,7 +21,13 @@ cnpm install rimraf -g
 rimraf node_modules
 
 切换到指定版本
-git reset 版本号
+git reset --hard 版本号
+
+回退到上一个版本
+git reset --hard HEAD^
+
+查看当前分支
+git branch
 
 
 ```
