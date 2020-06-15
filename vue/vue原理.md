@@ -51,3 +51,25 @@ Vue不允许动态添加根级响应式property，因此必须在初始化实例
 如果没有唯一的root级，则会报错
 ```
 
+3、为什么，data() {return { a: 1}}，用的是this.a即可取到，而不是用this.data.a来取？
+
+```
+因为vue对实例进行了一层代理，使用defineProperty来说实现，伪代码如下：
+function proxy(target, property, key) { // 这个proxy不是es6的那个
+	Object.defineProperty(target, key {
+		get() {
+			return target[property][key];
+		}
+		set(newValue) {
+			target[property][key] = newValue;
+		}
+	})
+}
+
+for(let key in data) {
+	proxy(vm, '_data', key);
+}
+
+// 原来是vm._data.a = xxx;
+```
+

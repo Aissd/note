@@ -141,3 +141,12 @@ import { site, User, Admin } from 'index.js';
 ```
 
 11、按需动态加载模块
+
+```
+1）import { site }, User from 'b.js'; // 这种引入方式必须放到最顶层操作；因此不能包裹到if，或者函数等模块里面，会报错；
+2）import('./a.js'); // 返回一个promise对象，通过这种引入方式，就可以放到回调函数或者if里面；
+
+3）import('./a.js').then(module => {
+	console.log('---');
+});
+```

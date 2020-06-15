@@ -29,6 +29,7 @@ git reset --hard HEAD^
 查看当前分支
 git branch
 
-
+查看当前git项目地址
+git remove -v
 ```
 
