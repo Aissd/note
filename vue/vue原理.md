@@ -1,3 +1,10 @@
+相关链接
+
+```
+vue模板编译过程：
+https://774848686.github.io/blog/technology/2020-0614.html
+```
+
 1、响应式
 
 ```
@@ -73,3 +80,12 @@ for(let key in data) {
 // 原来是vm._data.a = xxx;
 ```
 
+4、v-if和v-show的区别
+
+5、v-show的原理是什么
+
+```
+v-show是true的话，display是block吗；其实不是
+```
+
+6、opacity:0和visibility:hidden的区别
