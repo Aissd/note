@@ -21,3 +21,17 @@
 参考地址：https://juejin.im/post/5e72e405f265da57112650bc
 ```
 
+3、自定义错误处理
+
+```
+class ParamError extends Error {
+	constructor(msg) {
+		super(msg);
+		this.name = 'ParamError';
+	}
+}
+
+使用：
+throw new ParamError('参数错误');
+```
+

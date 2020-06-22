@@ -2,6 +2,8 @@
 
 ​	1）不是所有属性都能产生动画，比如border的solid变成double，宽度的auto变成300px，因为他们没有明确的中间值
 
+​	2）height: auto => height: 0 这个也是无法产生动画效果的；
+
 1、animation-name（动画名称）
 
 ```

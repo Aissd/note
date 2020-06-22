@@ -89,3 +89,38 @@ v-show是true的话，display是block吗；其实不是
 ```
 
 6、opacity:0和visibility:hidden的区别
+
+7、MVVM
+
+```
+1、Dep
+1）什么时候创建
+	初始化给data属性进行数据劫持时创建
+2）个数
+	与data中的属性一一对应
+3）结构
+	id：标识
+	subs：n个相关的watcher的容器
+2、Watcher
+1）什么时候创建
+	初始化解析模板（大括号表达式或一般指令）时创建
+2）个数
+	与模板中表达式（不包含事件指令）一一对应
+3）结构
+	cb：// 回调函数 - 用于更新界面的回调
+	vm：// 实例
+	exp：// 对应的表达式
+	depIds：{} // 相关的n个dep的容器对象
+	value：// 当前表达式所对应的value
+3、Dep与Watcher之间的关系
+1）什么关系
+	多对多的关系
+	举例：
+	1.1）data属性->1个Dep->n个Watcher（模板中右多个表达式使用了此属性：{{a}}，v-text="a"）
+	1.2）表达式->Watcher->n个Dep（多层表达式：a.b.c）
+2）如何建立
+	data中属性的get()中建立
+3）什么时候建立
+	初始化的解析模板中的表达式创建Watcher对象时
+```
+

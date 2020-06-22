@@ -10,3 +10,9 @@ npm init -y
 npm install @babel/preset-env @babel/core rollup rollup-plugin-babel rollup-plugin-serve
 ```
 
+3、生成.gitignore文件
+
+```
+touch .gitignore
+```
+

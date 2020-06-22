@@ -38,3 +38,12 @@ Vue 提供了另外一种定义模板的方式，在 <script> 标签里使用 te
 ```
 
 4、computed
+
+5、深度作用选择器
+
+```
+/deep/.el-card__header {}
+::v-deep .el-card__header {}
+>>> .el-card__header {}
+```
+
