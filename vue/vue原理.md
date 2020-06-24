@@ -5,7 +5,16 @@ vue模板编译过程：
 https://774848686.github.io/blog/technology/2020-0614.html
 ```
 
-1、响应式
+0、响应式原理
+
+```
+https://juejin.im/post/5ef010d6f265da0299791fa0
+Observer：响应式原理入口，根据数据类型（对象，数组）处理观测逻辑
+Watcher：用于执行更新渲染，组件会拥有一个Watcher，常说的收集依赖，就是收集Watcher
+Dep：依赖收集器，属性都会有一个Dep，方便发生变化时能够找到对应的依赖触发更新
+```
+
+1、
 
 ```
 1）vue会给每个声明在data的对象，用defineproperty封装set和get方法，其中如果有嵌套的对象，则会使用递归逐层遍历封装；（会判断是否是object类型并且不是null）
