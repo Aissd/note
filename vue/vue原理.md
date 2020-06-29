@@ -133,3 +133,9 @@ v-show是true的话，display是block吗；其实不是
 	初始化的解析模板中的表达式创建Watcher对象时
 ```
 
+8、Vue.use
+
+```
+执行Vue.use的时候，实际执行的是模块的install方法，会把Vue的实例传递进去
+```
+

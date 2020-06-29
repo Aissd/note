@@ -199,3 +199,86 @@ es6的块级作用域：
 	第二个：函数体大括号抱起来的块级上次文EC（BLOCK）
 ```
 
+13、new 原理
+
+```
+1、创建一个实例对象
+// let obj = {};
+// obj.__proto__ = X.prototype; // IE不支持
+let obj = Object.create(X.prototype);
+2、把方法执行，让里面的this指向实例对象
+3、分析返回结果：返回结果是引用类型的（对象/函数）则当前返回结果；
+if(result !== null && /^(object|function)$/.test(typeof result)) return result;
+return obj; // 返回结果是基本类型或无返回值，则返回实例对象
+
+
+function _new(Func, ...args) {
+	// 1、创建一个实例对象
+		// 1.1、IE不兼容
+	// let obj = {};
+	// obj.__proto__ = Func.prototype;
+		// 1.2、IE不兼容
+		// Object.setPrototypeOf(obj, Func.prototype);
+		// 1.3、兼容IE
+	let obj = Object.create(Func.prototype);
+	// 2、把方法执行，让里面的this指向实例对象
+	let result = Func.call(obj, ...args);
+	// 3、分析返回结果
+		// 3.1、返回结果是引用类型的（对象/函数）则当前返回结果；
+	if(result !== null && /^(object|function)$/.test(typeof result)) return result;
+		// 3.2、返回结果是基本类型或无返回值，则返回实例对象
+	return obj;
+}
+```
+
+14、手写call方法
+
+```
+~ function() {
+	// context -> this要指向的上下文
+	function change(context, ...args) {
+		// this => func
+		context = context = undefined ? window : context;
+		let type = typeof context;
+		if(!/^(object|function)$/.test(type)) {
+			if(/^(symbol|bigint)$/.test(type)) { // symbol不是一个构造函数
+				context = Object(context);
+			} else {
+				context = new context.constructor(context); // call和apply会自动调用
+			}
+		}
+		let key = Symbol('key'), result; // 避免冲突
+		context[key] = this;
+		result = context[key](...args);
+		delete context[key]; // 移除不会再使用的
+		return result;
+	}
+	Function.prototype.change = change;
+}();
+```
+
+15、手写bind（返回一个函数）
+
+```
+~ function() {
+	// context -> this要指向的上下文
+	function bind(context, ...args) {
+		// this => func
+		let _this = this;
+		context = context = undefined ? window : context;
+		let type = typeof context;
+		if(!/^(object|function)$/.test(type)) {
+			if(/^(symbol|bigint)$/.test(type)) { // symbol不是一个构造函数
+				context = Object(context);
+			} else {
+				context = new context.constructor(context); // call和apply会自动调用
+			}
+			return function anonymous(...innerArgs) { 
+				_this.call(context, ...args.concat(innerArgs));
+			}
+		}
+	}
+	Function.prototype.bind = bind;
+}();
+```
+
