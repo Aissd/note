@@ -157,6 +157,14 @@ console.log(b); // {n:1,x:{n:2}}
 2）新版浏览器
 	{}中的function，在全局下只声明不定义；
 	{}中出现function/let/const会创建一个块级上下文
+	 
+	
+函数的变量提升：
+1）函数在大括号里面（大括号，循环、判断），全局变量提升，只声明，不定义（function foo;）
+2）函数在全局下，全局变量提升，声明+定义（function foo() {};）
+
+函数私有上下文：
+1）除对象，函数的括号外，剩下的大括号，出现const，let，function，都会形成私有块级上下文
 ```
 
 ```
@@ -280,5 +288,41 @@ function _new(Func, ...args) {
 	}
 	Function.prototype.bind = bind;
 }();
+```
+
+16、深拷贝
+
+```
+使用
+JSON.parse(JSON.stringify(x)); 
+这种方式拷贝，在某些格式的数据转换为JSON字符串和JSON对象的时候存在一些问题：
+1）正则 - 变成{}
+2）函数，undefined，symbol - 直接被移除掉
+3）BigInt - 直接报错
+4）new Date() - 会变成一个无法转回日期的字符串
+
+// 以下方法基本能用，但如果对象的循环引用（let a = {name:1}; a.x = a）中会出现死递归。
+// 解决：把每一个克隆的对象和数组建立标识，后期递归处理的时候，处理过的则不再重复处理。
+function cloneDeep(obj) {
+	 // 验证类型
+	 if(obj === null) return null;
+	 if(typeof obj !== 'object') return obj;
+	 if(obj instanceof RegExp) return new RegExp(obj);
+	 if(obj instanceof Date) return new Date(obj);
+	 // 对于对象和数组我们再进行循环克隆
+	 let clone = new Object.constructor();
+	 Object.keys(obj).forEach(key => {
+	 	clone[key] = cloneDeep(obj[key]);
+	 });
+	 return clone;
+}
+```
+
+17、js中的同步异步编程
+
+```
+1）浏览器只分配一个线程，用来执行js代码（一次只能做一个事情，即同步）
+2）任务队列的机制：遇到异步执行的任务（客户端：定时器，事件绑定，Ajax，Promise的resolve和rejected，await成功时），先执行同步任务，之后再执行异步任务
+
 ```
 
