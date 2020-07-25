@@ -54,3 +54,28 @@ Vue 提供了另外一种定义模板的方式，在 <script> 标签里使用 te
 2）ref放在组件上，拿到的是组件对象
 ```
 
+7、v-bind="$attrs"
+
+```
+$attrs接收的是除class和style之外父组件传来的属性
+作用等同于展开了传进来的所有属性（除class和style之外）
+```
+
+![image-20200709235459935](C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20200709235459935.png)
+
+以下是添加了inheritAttrs: false之后的结果（div没有继承type和自定义的a属性）
+
+kInput.vue：
+
+![image-20200709235514985](C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20200709235514985.png)
+
+8、inheritAttrs: false
+
+```
+// 避免顶层容器继承属性，但class和style还是不会被$attrs所引用
+export default {
+	inheritAttrs: false,
+	...
+}
+```
+

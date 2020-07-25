@@ -35,3 +35,33 @@ class ParamError extends Error {
 throw new ParamError('参数错误');
 ```
 
+4、noscript标签的作用
+
+```
+用来定义在脚本未执行时的替代内容（文本）
+可以用来检测浏览器是否支持脚本，若不支持脚本则可以显示noscript里的
+```
+
+5、reflow（回流）和repaint（重绘）
+
+```
+下面情况会导致回流发生：
+1）改变窗口大小；
+2）改变文字大小；
+3）内容改变，如用户在输入框中敲字
+4）激活伪类，如hover
+5）操作class属性
+6）计算offsetWidth和offsetHeight
+7）设置style属性
+https://www.cnblogs.com/Peng2014/p/4687218.html
+```
+
+6、import
+
+```
+import 命令是编译阶段执行的，在代码运行之前。
+因此被导入的模块会先运行，而导入模块的文件会后执行。
+
+这是commonJS中require()和import之间的区别，使用require()，你可以在运行代码时根据需要加载依赖项。
+```
+
