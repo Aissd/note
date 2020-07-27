@@ -51,3 +51,23 @@ hd instanceof Object; // true
 typeof arguments; // object
 ```
 
+7、call和apply的区别是什么？哪个性能更好一些？
+
+```
+1）call和apply是Function原型上的方法，每个Function的实例都可以调原型上的这两个方法；
+2）这两个方法执行的目的都是改变函数中的this指向；
+3）区别在于call的参数是一个一个传递的，而apply的参数是以数组形式传递的
+相类似的还有方法bind， bind也是用来改变函数中的this指向，bind没有把函数立即执行，只是预先改变this
+
+性能上，传三个以内参数差不多，三个以上时，call的性能更佳。
+
+fn.call(obj, 10, 20, 30);
+fn.apply(obj, [10, 20, 30]);
+```
+
+8、回调函数
+
+```
+回调函数中的this一般都是window
+```
+
