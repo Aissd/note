@@ -42,7 +42,8 @@ vue无法检测property的添加或移除；
 	1.1）在data对象上声明，可转换为响应式
 	1.2）对于已经创建的实例，vue不允许动态添加根级别的响应式属性，但是可以用Vue.set(object, propertyName, value)方法向嵌套对象添加响应式属性；或this.$set(object, propertyName, value);
 	1.3）对已有对象赋值多个属性，可使用Object.assign()或_extend()
-this.someObject = Object.assign({}, this.someObject, {a:1,b:2});
+	this.someObject = Object.assign({}, this.someObject, {a:1,b:2});
+	1.4）vue提供了两个API - vm.$set和vm.$delete
 
 2）对于数组：
 vue不能检测以下数组的变动：

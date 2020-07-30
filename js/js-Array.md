@@ -248,5 +248,13 @@ function uniqueArr(array) {
 	return 
 }
 console.table(uniqueArr(arr));
+
+例子4：展平数组
+const twoDArr = [ [1,2], [3,4], [5,6], [7,8] , [9,10] ];
+
+const oneDArr = twoDArr.reduce((accumulator, currentValue) => accumulator.concat(currentValue));
+
+console.log(oneDArr);
+// [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
 ```
 
