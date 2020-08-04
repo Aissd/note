@@ -1,4 +1,4 @@
-
+基于promise加载图片
 
 ```
 function loadImage(src, resolve, reject) {

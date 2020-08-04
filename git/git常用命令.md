@@ -52,3 +52,10 @@ git config --global alias.a add（添加add的别名 a）
 因此可以 git a .
 ```
 
+
+
+```
+:wq
+回车
+```
+

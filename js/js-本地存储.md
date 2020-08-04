@@ -1,0 +1,1 @@
+localstorage - 最大容量5M

@@ -27,3 +27,20 @@ date * 1; // 1590021572058
 ```
 
 Date().getTime() 与 Date.now()等价，但建议使用Date.now()，性能相比会更好； 
+
+3、给给定的时间加秒
+
+```
+// time - 时间字符串 - '2020-07-23 15:15:15'
+// second - 要加的秒 - 10
+function addSecondFn(time, second) {
+	let res = (new Date(time).getTime() / 1000 + second) * 1000;
+	return formatFn(res, 'yyyy-MM-dd HH:mm:ss');
+}
+
+// 把时间戳转换为特定格式的函数
+function formatFn(time, format) {
+	...
+}
+```
+
