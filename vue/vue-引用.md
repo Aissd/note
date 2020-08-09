@@ -14,8 +14,6 @@
 2.2）background: url(~@/assets/img/newIndex/bg.png) no-repeat center/contain;
 ```
 
-
-
 2、样式：
 
 ​	1）style标签里

@@ -63,5 +63,30 @@ import 命令是编译阶段执行的，在代码运行之前。
 因此被导入的模块会先运行，而导入模块的文件会后执行。
 
 这是commonJS中require()和import之间的区别，使用require()，你可以在运行代码时根据需要加载依赖项。
+
+commonjs模块输出的是一个值的拷贝；es6模块输出的是值的引用；
+commonjs模块是运行时加载的；es5模块是编译时输出接口；
+commonjs模块是单个值导出，es6可以导出多个；
+commonjs是动态语法，可以写在判断里；es6module静态语法只能写在顶层；
+commonjs的this是当前模块，es6module的this是undefined
+
+import 在生产环境下，会自动去除掉没用的代码
+tree-shaking把没用到的代码，自动删除掉
+es6模块会把结果放到default
+
+test.js:
+let sum = (a,b) => {
+	return a + b;
+}
+
+export default {
+	sum
+}
+a.js:
+let calc from './test.js';
+console.log(calc.sum(1,2));
+let calc = require('./test.js');
+console.log(calc.default.sum(1,2));
 ```
 
+7、

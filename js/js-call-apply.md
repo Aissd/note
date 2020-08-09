@@ -41,3 +41,13 @@ let func = hd.bind({ f: 1 }); // 返回的是一个新函数
 console.log(func(2, 3)); // 6 这样才会调用
 ```
 
+
+
+手写call
+
+```
+Function.prototype.call = function call(context, ...args) {
+	
+}
+```
+

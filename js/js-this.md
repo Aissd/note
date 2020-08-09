@@ -32,3 +32,17 @@ let obj = {
 };
 ```
 
+
+
+
+
+js中this的五种情况
+
+```
+1）元素事件的绑定，事件触发，方法执行，方法中的this一般都是当前元素
+2）函数执行，看前面是否有"."，有"."前面是谁this就是谁，没有，this就是window（严格模式下是undefined）
+3）匿名函数或者回调函数中的this，window居多
+4）箭头函数中没有自己的this，this都是上下文中的
+5）基于call/apply/bind 暴力改变this
+```
+
