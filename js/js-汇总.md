@@ -89,4 +89,32 @@ let calc = require('./test.js');
 console.log(calc.default.sum(1,2));
 ```
 
-7、
+7、if , else if , else
+
+```
+不管在条件判断中写什么，最后总要把具体其计算出true/false来判断条件是否成立（把其他类型的值转换为布尔类型，只有0/NaN/''/null/undefined是false，其余都是true）
+```
+
+8、
+
+```
+在js中，+ - * / % 都是数学运算，除 + 以外，其余运算符在运算的时候，如果遇到了非数字类型的值，首先会转换为数字类型（Number()），然后再进行运算
+
++ 在js中除了数学相加，还有字符串拼接的作用（如果运算中遇到了字符串，则为字符串拼接，而不是数学相加）
+
+{}+'str'; // NaN
+[]+'str'; // 'str'
+null+'str'; // 'nullstr'
+undefined+'str'; // 'undefinedstr'
+```
+
+```
+> < >= <= 这些是数学比较，遇到非数字类型的值，首先会转换为数字类型（Number），然后再进行运算
+
+({}) > 5; // false
+'str' > 5; // false
+```
+
+9、null代表的是空对象指针（没有指向任何的内存空间）， typeof null; // "object"
+
+10、typeof检测数组/正则/对象，最后返回的都是"object"，因此无法细分对象
