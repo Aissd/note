@@ -91,11 +91,5 @@ Object.prototype.toString.call(Symbol('xx'));
 Object.prototype.toString.call(function() {});
 Object.prototype.toString.call(BigInt);
 Object.prototype.toString.call(Error);
-
-jquery class2type
-
-[].forEach(name => {
-	
-})
 ```
 

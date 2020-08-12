@@ -118,3 +118,74 @@ undefined+'str'; // 'undefinedstr'
 9、null代表的是空对象指针（没有指向任何的内存空间）， typeof null; // "object"
 
 10、typeof检测数组/正则/对象，最后返回的都是"object"，因此无法细分对象
+
+11、三元运算符
+
+```
+1）如果三元运算符中的某一部分不需要做任何的处理，用null/undefined/void 0 占位即可；
+var num = 12;
+num > 10 ? num++ : null;
+2）如果需要执行多项操作，把其用小括号包裹起来，每条操作语句用逗号分隔；
+var num = 12;
+num >= 12 ? (num++, num *= 10) : null;
+```
+
+```
+思考题：
+var num = 12;
+if(num > 0) {
+	if(num < 10) {
+		num++;
+	} else {
+		num--;
+	}
+} else {
+	if(num == 0) {
+		num++;
+		num=num/10;
+	}
+}
+改成三元运算符：
+var num = 12;
+num > 0 ? (num<10?num++:num--) : (num==0?(num++, num/=10):null);
+```
+
+12、n++ 和 n +=1完全一样吗？
+
+```
+如果操作的对象是字符串，则不同
+var n = '10';
+n++; // 11
+n+=1; // '101'
+如果遇到非有效数字做运算，则为NaN
+```
+
+13、switch
+
+```
+switch是强校验
+```
+
+14、for循环中的关键字：continue ， break
+
+```
+continue; // 结束本轮循环（循环体中continue后面的代码将不再执行），继续执行下一轮循环
+break; // 强制结束整个循环，不做任何处理
+
+思考题：
+for(var i = 1; i <= 10; i += 2) {
+	if(i <= 5) {
+		i++;
+		continue;
+	} else {
+		i -= 2;
+		break;
+	}
+	i--;
+	console.log(i);
+}
+console.log(i);
+```
+
+15、alert - 输出的都是字符串
+
