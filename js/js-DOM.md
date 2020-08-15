@@ -106,3 +106,22 @@ if (!("classList" in document.documentElement)) {
 } 
 ```
 
+12、获取容器高度
+
+```
+1）包括内填充，边框：document.querySelector('#a').offsetHeight
+2）仅容器高度：document.querySelector('#a').clientHeight
+```
+
+13、设置滚动条位置
+
+```
+document.querySelector('#a').scrollTop = 100;
+```
+
+14、a标签返回上一页
+
+```
+<a href="javascript:history.go(-1)">返回上一步</a>
+```
+

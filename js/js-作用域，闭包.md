@@ -57,3 +57,22 @@ let hd = {
 };
 ```
 
+深入V8底层：GO/VO/AO/EC及作用域和执行上下文
+
+```
+1）GO：全局对象（Global Object）
+    var globalObject = {
+        Math: { ... },
+        String: { ... },
+        document: { ... },
+        ...
+        window: this
+    }
+2）ECStack：Execution Context Stack执行环境栈
+3）EC：Execution Context 执行环境（执行上下文）
+	VO：Varibale Object 变量对象
+	AO：Activation Object 活动对象（函数的叫AO，理解为VO的一个分支）
+4）Scope：作用域，创建的函数的时候赋予的
+5）Scope Chain：作用域链
+```
+

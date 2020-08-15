@@ -93,3 +93,10 @@ Object.prototype.toString.call(BigInt);
 Object.prototype.toString.call(Error);
 ```
 
+5、
+
+```
+基本数据类型是按值操作
+引用数据类型是按地址来操作
+```
+

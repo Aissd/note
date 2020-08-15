@@ -11,3 +11,15 @@ null 和 undefined
 	undefined：代表的没有一般不是人为手动控制的，大部分都是浏览器自主为空（后面可以赋值也可以不赋值）
 ```
 
+
+
+为什么typeof null 为 'object'
+
+```
+因为二进制以000开头的是obj
+
+null则全是0，所以被误认为是object
+
+这是引擎解析的一个bug
+```
+

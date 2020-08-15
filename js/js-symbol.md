@@ -24,3 +24,13 @@ let hd = Symbol('online');
 console.log(hd.description); // online
 ```
 
+3、比较
+
+```
+1）存储一个Symbol，然后取出来与自己比较，所以为true
+let val = Symbol('00');
+console.log(val == val); // true
+2）分别创建了两个同名的Symbol，所以为false
+console.log(Symbol('AA') == Symbol('AA')); // false
+```
+
