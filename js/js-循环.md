@@ -93,3 +93,16 @@ while(firstChild = el.firstChild)
 使用 appendChild() 方法移除元素到另外一个元素
 
 http://js.jirengu.com/xuxokituve/1/edit?html,js,output
+
+
+
+5、for循环
+
+```
+for(var i = 0; i < 3; i++) {
+    var a = i;
+}
+console.log(a); // 2
+console.log(i); // 3 ，i还会++，只是条件不符合没有走循环体
+```
+

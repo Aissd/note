@@ -1,3 +1,5 @@
+https://www.w3cschool.cn/sass/
+
 1、calc计算
 
 ```
@@ -229,7 +231,38 @@ append(10px 20px, 30px) // 10px, 20px, 30px
 index(1px solid red, 1px) // 1
 ```
 
+24、变量
 
+```
+标识符：
+	sass中以$开头表示变量
+	
+变量插值：
+$direction: left;
+.my-padding {
+	padding-#{$direction}: 20px;
+}
+
+变量作用域：
+	sass 3.4.0之前没有局部或全局变量之分，后者总会覆盖前者
+$color: blue;
+a {
+	$color: red;
+	color: $color; // red
+}
+p {
+	color: $color; // blue
+}
+	sass 3.4.0之后，出现关键字 !global
+
+span {
+	$color: yellow !global;
+	color: $color; // yellow
+}
+div {
+	color: $color; // yellow
+}
+```
 
 未完...
 

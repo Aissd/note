@@ -29,7 +29,6 @@ option = {
         textStyle: {
             color: '#333',
             fontSize: 12,
-            
         }
     },
     grid: {
@@ -50,7 +49,7 @@ option = {
     xAxis: {
     	show: true,
         type: 'category', // 离散类目数据，自动从series.data或dataset.source中取
-        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+           data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
     },
     yAxis: {
         type: 'value'
@@ -77,5 +76,81 @@ option = {
         }
     ]
 };
+```
+
+```
+
+				series: [
+					{
+						type: 'bar',
+						barWidth: 18,
+						itemStyle: {
+							color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+								offset: 0,
+								color: '#01E3FE'
+							}, {
+								offset: 1,
+								color: '#1999F9'
+							}])
+						},
+						data: seriesData
+					},
+					{
+						type: 'line',
+						lineStyle: {
+							color: '#FF0000'
+						},
+						itemStyle: {
+							color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+								offset: 0,
+								color: '#01E3FE'
+							}, {
+								offset: 1,
+								color: '#1999F9'
+							}])
+						},
+						yAxisIndex: 1,
+						data: seriesData
+					}
+				]
+```
+
+
+
+3、柱状图
+
+```
+yAxis: {
+	// 坐标轴
+	axisLabel: {
+        color: '#fff',
+        fontSize: 12
+	},
+	// 纵坐标阴影
+    splitArea: {
+    	show: false,
+    }
+},
+xAxis: {
+	// 坐标轴
+	axisLabel: {
+        color: '#fff',
+        fontSize: 12
+    },
+    // 坐标线
+    axisLine: {
+         lineStyle: {
+         	type: 'solid',
+         	color: '#f00', // 左边线的颜色
+         	width:'2' // 坐标线的宽度
+         }
+    },
+	// 坐标值
+    axisLabel: {
+         textStyle: {
+         	color: '#f00'
+		}
+	}
+}
 ```
 

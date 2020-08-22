@@ -43,4 +43,3 @@ function formatFn(time, format) {
 	...
 }
 ```
-

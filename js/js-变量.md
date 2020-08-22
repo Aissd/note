@@ -61,6 +61,18 @@ console.log(a); // 报错，Uncaught ReferenceError: a is not defined
 console.log(a); // 123
 ```
 
+```
+{
+    var a = 10;
+}
+{
+    let a = 20;
+    ++a;
+    console.log(a); // 21
+}
+console.log(a); // 10
+```
+
 let、const禁止重复声明
 
 ```

@@ -77,3 +77,20 @@ typeof 9007199254740991n; // "bigint"
 3）-Infinity - 无穷小，小于任何数值
 ```
 
+7、number和boolean用==比较时，会把boolean转换为number再比较值
+
+```
+for(let i = 0; i < 3; i++) {
+	// 0: false, 1:true, 2:true
+	if(i % 3) {
+		if(i % 3 == true) { // 需要把布尔转化为数字再比较
+			// 1
+		} else {
+			// 2
+		}
+	} else {
+		// 0
+	}
+}
+```
+
