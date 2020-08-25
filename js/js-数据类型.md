@@ -4,8 +4,6 @@
 1）底层机制：直接在计算机底层基于数据类型的值（二进制）进行检测
 2）typeof null "object"，对象存储在计算机中，都是以000开始的二进制存储，null也是，所以检测出来是对象
 3）typeof 普通对象/数组对象/正则对象/日期对象 "object"
-
-
 ```
 
 2、instanceof - 检测当前实例是否属于这个类
@@ -62,6 +60,15 @@ console.log(arr.constructor === RegExp); // false
 console.log(arr.constructor === Object); // false
 let n = 1;
 console.log(n.constructor === Number); // true
+let a = '';
+console.log(a.constructor === String); // true
+console.log(false.constructor === Boolean); // true
+let a = undefined;
+console.log(a.constructor === undefined); // 报错
+let a = null;
+console.log(a.constructor === null); // 报错
+var a = function() {};
+console.log(a.constructor === Function); // true
 
 2）constructor可以随便改，所以也不准
 Number.prototype.constructor == 'AA';
@@ -78,19 +85,19 @@ alert(obj); // 会调用toString [object Object]
 
 推测：是不是只要把Object.prototype.toString执行，让它里面的this变为要监测的值，那就能返回当前值所属类的信息
 // "[object Number/String/Boolean/Null/Undefined/Symbol/Object/Array/Regex/Function/Date/NaN]"
-Object.prototype.toString.call(1); 
-Object.prototype.toString.call(NaN);
-Object.prototype.toString.call('');
-Object.prototype.toString.call(true);
-Object.prototype.toString.call([]);
-Object.prototype.toString.call(/^$/);
-Object.prototype.toString.call(new Date());
-Object.prototype.toString.call(undefined);
-Object.prototype.toString.call(null);
-Object.prototype.toString.call(Symbol('xx'));
-Object.prototype.toString.call(function() {});
-Object.prototype.toString.call(BigInt);
-Object.prototype.toString.call(Error);
+Object.prototype.toString.call(1); // "[object Number]"
+Object.prototype.toString.call(NaN); // "[object Number]"
+Object.prototype.toString.call(''); // "[object String]"
+Object.prototype.toString.call(true); // "[object Boolean]"
+Object.prototype.toString.call([]); // "[object Array]"
+Object.prototype.toString.call(/^$/); // "[object RegExp]"
+Object.prototype.toString.call(new Date()); // "[object Date]"
+Object.prototype.toString.call(undefined); // "[object Undefined]"
+Object.prototype.toString.call(null); // "[object Null]"
+Object.prototype.toString.call(Symbol('xx')); // "[object Symbol]"
+Object.prototype.toString.call(function() {}); // "[object Function]"
+Object.prototype.toString.call(BigInt); // 
+Object.prototype.toString.call(Error); // 
 ```
 
 5、

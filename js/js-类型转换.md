@@ -23,7 +23,7 @@
 
 
 
-2、把其他数据类型转换为number类型
+2、把其他数据类型转换为Number类型
 
 ```
 发生的情况
@@ -105,8 +105,8 @@ Number（浏览器自行转换都是基于这个方法完成的）
 	{} => '[object Object]'
 	不管是啥样的普通对象，最后结果都一样
 	
-	new Date().toString() => Web Aug 19 2020 12:48:44 GMT+0800（中国标准时间）
-	/\.is$/.toString() => '/\.is$/'
+	new Date().toString() => 'Web Aug 19 2020 12:48:44 GMT+0800（中国标准时间）'
+	/\.js$/.toString() => '/\.js$/'
 	Math.toString() => '[object Math]'
 	Date.toString() => 'function Date() { [native code] }'
 ```
@@ -135,7 +135,7 @@ Number（浏览器自行转换都是基于这个方法完成的）
 	
 	1+true; // 2（数学运算）
 	'1'+true; // 1true（字符串拼接）
-	[12]+10; // '1210'（虽然现在没看见字符串，但是引用类型转换为数字，首先会转换为字符串，所以变为字符串拼接）
+	[12]+10; // '1210'（虽然现在没看见字符串，但是引用类型要转换为数字，首先会转换为字符串，所以变为字符串拼接）
 	({}+10); // '[object Object]10' 
 	{}+10; // 10 （这个和以上说的没有半毛钱关系，因为根本就不是数学运算，也不是字符串拼接，它是两部分代码，一部分是{}，代表一个代码块【块级作用域】，+10才是操作，等同于0+10，所以结果为10【严格写法应该是{};+10;】）
 	{}+true; // 1
@@ -164,16 +164,16 @@ null === null; // true
 undefined === undefined; // true
 null && undefined和其他值都不相等
 
-NaN==NaN; false
+NaN==NaN; // 	false
 NaN和谁都不相等，包括自己
 
-1 == true; // false
+1 == true; // true
 1 == false; // false
 2 == true; // false （规律不要混淆，这里是把true变为数字1）
 
 [] == false; // true （都转换为数字0 == 0;） 
 ![] == false; // true（先算![]，把数组转换为布尔取反=>false => false == false）
-[] == []; //
+[] == []; // false
 [] == true; // false（都转换为数字0 == 1）
 ![] == true; // false
 ```

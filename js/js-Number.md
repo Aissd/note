@@ -13,7 +13,7 @@
              布尔值转数字
                  Number(true); // 1
                  Number(false); // 0
-                 1.1.5）其它
+             其他
                  Number(null); // 0
                  Number(undefined); // NaN
              对象
