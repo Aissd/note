@@ -7,17 +7,24 @@
 1、charAt/charCodeAt
 
 ```
-1）作用：charAt根据索引获取指定位置的字符，charCodeAt不仅仅获取字符，它获取的是字符串对应的Unicode编码值（ASC II码值)
-2）参数：索引
-3）返回：字符或者
+charAt
+1）作用：charAt根据索引获取指定位置的字符，
+2）参数：索引（无则默认是0）
+3）返回：指定索引对应的字符串（无则为空字符串）
 
-区别：当索引不存在时
+与字符串根据索引取值相比的区别：当索引不存在时
 let str = 'zys';
 str[100]; // undefined => 运行的机制和对象是一样的
 str.charAt(100); // ''
 
+charCodeAt
+1）作用：不仅仅获取字符，它获取的是字符串对应的Unicode编码值（ASC II码值)
+2）参数：索引（无则默认是0）
+3）返回：指定缩影对应的ASC II码值（超出索引范围则为NaN）
+
 str.charCodeAt(0); // 122 => z的ASC II码值 （对应的十进制编码）
 String.fromCharCode返回的是编码对应的字符
+String.fromCharCode(122); // 'z'
 ```
 
 2、indexOf/ lastIndexOf

@@ -8,10 +8,9 @@
 2、:style
 
 ```
- :style="{ height: '144px' }"
- 
- :style="`background: url(${item.img}) no-repeat; background-size: contain`"
- 
- :style="{ height: tableHeight + 'px', flex: 'auto', width: tableWidth + 'px' }"
+:style="{ height: '144px' }"
+:style="`background: url(${item.img}) no-repeat; background-size: contain`"
+:style="{ height: tableHeight + 'px', flex: 'auto', width: tableWidth + 'px' }"
+:style="{ 'background-color': colorData[index] }"
 ```
 

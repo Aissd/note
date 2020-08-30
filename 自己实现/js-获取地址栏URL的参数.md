@@ -6,8 +6,7 @@ function queryURLParameter(str) {
 	var link = document.createElement('a');
 	link.href = str;
 	// 2、a元素对象的hash/search两个属性分别存储了哈希值和参数值
-	var hash = link.hash.substr(1),
-			search = link.search.substr(1);
+	var hash = link.hash.substr(1), search = link.search.substr(1);
 	// 3、分别解析出hash和参数即可
 	var obj = {};
 	hash ? obj.HASH = hash : null;

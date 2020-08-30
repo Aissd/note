@@ -43,3 +43,5 @@
 10、:first-child
 
 11、:last-child
+
+12、[class^="btn-"] {}

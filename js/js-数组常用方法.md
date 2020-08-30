@@ -79,8 +79,6 @@
 	ary[ary.length] = 100;
 ```
 
-
-
 6、slice
 
 ```
@@ -185,6 +183,7 @@ some
 数组去重方法：
 
 ```
+let ary = [2,3,4,5,5,6,7,7,7,8,9];
 var obj = {};
 for(var i = 0; i < ary.length; i++) {
 	var item = ary[i];

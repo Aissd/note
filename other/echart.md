@@ -6,13 +6,11 @@
 比如将40%调整为20%，饼状图就会往上移动容器高度的20%
 ```
 
-
-
 ```
-
+tooltip: {
+	confine: true // 解决显示不全的问题
+}
 ```
-
-
 
 2、折线图
 
@@ -79,40 +77,39 @@ option = {
 ```
 
 ```
-
-				series: [
-					{
-						type: 'bar',
-						barWidth: 18,
-						itemStyle: {
-							color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-								offset: 0,
-								color: '#01E3FE'
-							}, {
-								offset: 1,
-								color: '#1999F9'
-							}])
-						},
-						data: seriesData
-					},
-					{
-						type: 'line',
-						lineStyle: {
-							color: '#FF0000'
-						},
-						itemStyle: {
-							color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-								offset: 0,
-								color: '#01E3FE'
-							}, {
-								offset: 1,
-								color: '#1999F9'
-							}])
-						},
-						yAxisIndex: 1,
-						data: seriesData
-					}
-				]
+series: [
+	{
+		type: 'bar',
+		barWidth: 18,
+		itemStyle: {
+			color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+				offset: 0,
+				color: '#01E3FE'
+			}, {
+				offset: 1,
+				color: '#1999F9'
+			}])
+		},
+		data: seriesData
+	},
+	{
+		type: 'line',
+		lineStyle: {
+			color: '#FF0000'
+		},
+		itemStyle: {
+			color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+				offset: 0,
+				color: '#01E3FE'
+			}, {
+				offset: 1,
+				color: '#1999F9'
+			}])
+		},
+		yAxisIndex: 1,
+		data: seriesData
+	}
+]
 ```
 
 

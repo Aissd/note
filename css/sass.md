@@ -11,7 +11,7 @@ calc不能包含变量，必须使用sass插值的方式#{$variable}
 
 ![image-20200419191206782](C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20200419191206782.png)
 
-2、继承
+2、继承 - @extend指令 - 不能接收参数
 
 ```
 %test-color{
@@ -22,7 +22,7 @@ calc不能包含变量，必须使用sass插值的方式#{$variable}
 }
 ```
 
-3、混合宏
+3、混合宏 - @mixin混合器 - 能够接收参数
 
 ```
 /* 声明 */
@@ -37,6 +37,10 @@ button {
 /* 编译出来的css */
 button {
 	color: lightblue;
+}
+
+@mixin float($dir: left) {
+	float: $dir;
 }
 ```
 

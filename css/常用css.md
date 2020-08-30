@@ -180,10 +180,4 @@ color: transparent;
 }
 ```
 
-11、class前缀选择器
-
-```
-[class^="btn-"] {}
-```
-
-12、currentColor，css3的关键字，获取使用该关键字的元素（如果没有就是最近的父元素）的color属性的颜色值；
+11、currentColor，css3的关键字，获取使用该关键字的元素（如果没有就是最近的父元素）的color属性的颜色值；

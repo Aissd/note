@@ -122,3 +122,15 @@ Object.setPrototype(hd, parent); // 给hd设置原型，为parent
 super == this.__proto__
 ```
 
+20、in
+
+```
+检测当前对象是否存在某个属性（包括原型链上的）
+```
+
+21、hasOwnProperty
+
+```
+检测当前属性是否为对象的私有属性（不包括原型链上的）
+```
+
