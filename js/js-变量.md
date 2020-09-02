@@ -19,7 +19,7 @@ var web = 'google.cn';
 
 2、暂时性死区（要使用之前必须声明，否则报错）
 
-只有块级作用域内存在let 、const关键字声明的变量，js会将该变量声明移入暂时性死区中，访问暂时性死区的变量会触发运行时的错误。只有执行let、const变量声明语句之后，该变量声明才会从暂时性死区移除，才可正常访问。
+如果区块中存在let和const命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错。
 
 ```
 let web = 'facebook.com';
@@ -28,6 +28,13 @@ function fn() {
 	let web = 'google.com'; // 报错，let不存在变量提升，需要先声明再使用
 }
 fn();
+
+暂时性死区，意味着typeof不再是百分百安全的操作：
+typeof x; // Uncaught ReferenceError: x is not defined
+let x = 10;
+
+typeof y; // 'undefined'
+var y = 10;
 ```
 
 ```

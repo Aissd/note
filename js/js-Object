@@ -116,7 +116,7 @@ let parent = { name: 'parent' };
 Object.setPrototype(hd, parent); // 给hd设置原型，为parent
 ```
 
-19、super
+19、super	
 
 ```
 super == this.__proto__

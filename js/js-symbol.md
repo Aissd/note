@@ -34,3 +34,54 @@ console.log(val == val); // true
 console.log(Symbol('AA') == Symbol('AA')); // false
 ```
 
+4、消除魔术字符串
+
+```
+
+```
+
+5、symbol不能被new
+
+6、不参与for in/of遍历
+
+```
+for in
+for of
+Object.keys()
+Object.values()
+getOwnPropertyNames()
+JSON.stringify();
+都不能遍历Symbol
+
+单独拿到Symbol
+Object.getOwnPropertySymbols()
+```
+
+7、Symbol()创建出来的，不是Symbol的实例
+
+```
+Symbol() instanceof Symbol; // false
+```
+
+8、Symbol的对象类实例
+
+```
+Object(Symbol()); // 
+```
+
+9、Symbol不能参与计算 - 不能隐式转换
+
+```
+let n = Symbol();
+n+10; // 报错 - 不能隐式转换成数字
+n+''; // 报错 - 不能隐式转换成字符串
+
+支持显式转换
+String(Symbol()); // 'Symbol()';
+Symbol().toString(); // 'Symbol()';
+
+/* 
+/!*  *!/
+*/
+```
+

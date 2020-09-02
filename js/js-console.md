@@ -32,7 +32,3 @@ console.dir()
 
 6、console.profile() - 火狐浏览器安装firebug后可用，可更精准的获取到程序每一个步骤所消耗的时间
 
-```
-
-```
-

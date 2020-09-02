@@ -268,6 +268,24 @@ div {
 }
 ```
 
+25、函数
+
+```
+@function getDividend($arg) { 
+    @return ($arg / $rem) * 1rem; 
+}
+
+$rem: 120;
+$mwHeight: getDividend(108);
+
+header {
+    width: getDividend(1920);
+    background-size: getDividend(1920) getDividend((108));
+}
+```
+
+
+
 未完...
 
 https://www.imooc.com/code/8432

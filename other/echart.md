@@ -30,6 +30,7 @@ option = {
         }
     },
     grid: {
+    	top: '10px',
         left: '3%',
         right: '4%',
         bottom: '3%',
