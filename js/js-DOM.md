@@ -34,38 +34,43 @@ document.querySelector('.className');
 document.querySelector("[name='password']");
 ```
 
-6、创建元素
+6、元素操作
 
 ```
-document.createElement('div');
+创建元素
+let $div = document.createElement('div');
+
+给元素设置class
+$div.className = 'normal';
+$div.className += ' danger';
+
+给元素设置文本内容
+$div.innerText = '哈哈哈哈哈哈';
+
+给元素设置内容（包括html结构，转义字符）
+$div.innerHTML = '<span>hhhhhh</span>';
+
+给元素添加点击事件
+$div.onclick = function { console.log('hhhhhhh'); }
 ```
 
-7、原生js添加，移除class
+7、classList - 原生js添加，移除class - IE10即IE10以上才支持
 
 ```
 el.classList.add('active');
 el.classList.remove('active');
-```
 
-8、切换类toggle
-
-```
+切换类toggle
 el.classList.toggle('active');
-```
 
-9、是否存在类
-
-```
+是否存在类
 el.classList.contains('active');
-```
 
-10、item（index） -  返回类名在元素中的索引值，从0开始，范围外则返回null
-
-```
+item（index） -  返回类名在元素中的索引值，从0开始，范围外则返回null
 el.classList.item(0); // active
 ```
 
-11、兼容性：IE10即IE10以上支持
+11、classList - 兼容性：IE10即IE10以上支持
 
 ```
 if (!("classList" in document.documentElement)) {  

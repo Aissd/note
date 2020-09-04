@@ -134,3 +134,46 @@ super == this.__proto__
 检测当前属性是否为对象的私有属性（不包括原型链上的）
 ```
 
+Object.assign() - 合并对象（浅拷贝）
+
+```
+let name = { name: 'xxx' };
+let age = { age: 18 };
+let obj = Object.assign(name, age);
+// 等价于
+let res = Object.assign(obj, name, age);
+// 等价于
+let obj = {...name, ...age};
+```
+
+Object.setPrototypeOf(A,B); - A的原型链指向B - 修改原型
+
+```
+let obj1 = { name: 'xxx' };
+let obj2 = { age: 18 };
+obj1.__proto__ = obj2; // obj1的原型指向obj2
+等价于
+Object.setPrototypeOf(obj1, obj2);
+
+// 获取obj1原型
+Object.getPrototypeOf(obj1);
+```
+
+super关键字 - 获取原型上的属性
+
+```
+let obj1 = {
+	age: 9,
+	name: 'jw'
+}
+
+let obj2 = {
+	name: 'zfpx',
+	getPName() {
+		return super.name
+	},
+	__proto__: obj1
+};
+console.log(obj2.getPName()); // 'jw'
+```
+
