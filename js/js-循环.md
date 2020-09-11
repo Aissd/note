@@ -1,10 +1,7 @@
+### forEach
 ```
-1、forEach
 _array.forEach((item, index, array) => {});
 ```
-
-
-
 ```
 const colorMap = {
   '#20a0ff': 'primary',
@@ -32,11 +29,7 @@ Object.keys(colorMap).forEach((item, index, array) => {
   console.log(item, index, array); 
 });
 ```
-
-
-
-2、杨辉三角形
-
+### 杨辉三角形
 ```
 function star(row = 5) {
     for(let i = 0; i < row; i++) {
@@ -48,12 +41,8 @@ function star(row = 5) {
 }
 star(10);
 ```
-
-
-
-3、标签 - 例子里的parent 和 son
-
-双重循环，可以用标签来设置break或者continue跳到哪去
+### 标签 - 例子里的parent 和 son
+> 双重循环，可以用标签来设置break或者continue跳到哪去
 
 ```
 parent: for(let i = 1; 1<= 10; i++) {
@@ -67,11 +56,7 @@ parent: for(let i = 1; 1<= 10; i++) {
 	}
 }
 ```
-
-
-
-4、while
-
+### while
 ```
 let fragment = document.createDocumentFragment();
 let firstChild;
@@ -80,23 +65,19 @@ while(firstChild = el.firstChild) {
 }
 return fragment;
 ```
-
 ```
 while(firstChild = el.firstChild)
 ```
 
-这个语句进行了2个操作：
+> 这个语句进行了2个操作：
 
-1. 执行赋值操作`firstChild = el.firstChild`
-2. 执行`while(firstChild)`，`while`是条件为真的情况下才执行，也就是必须`el.firstChild`有值的情况下才执行
+> > 1. 执行赋值操作`firstChild = el.firstChild`
+> > 2. 执行`while(firstChild)`，`while`是条件为真的情况下才执行，也就是必须`el.firstChild`有值的情况下才执行
 
 使用 appendChild() 方法移除元素到另外一个元素
 
 http://js.jirengu.com/xuxokituve/1/edit?html,js,output
-
-
-
-5、for循环
+### for循环
 
 ```
 for(var i = 0; i < 3; i++) {
@@ -104,5 +85,16 @@ for(var i = 0; i < 3; i++) {
 }
 console.log(a); // 2
 console.log(i); // 3 ，i还会++，只是条件不符合没有走循环体
+```
+> 使用闭包来解决常见的循环问题
+```
+for (var i = 0; i < 10; i++) {
+    // capture the current state of 'i'
+    // by invoking a function with its current value
+    ;(function(i) {
+        setTimeout(function() { console.log(i); }, 100 * i);
+    })(i);
+}
+// 0 1 2 3 4 5 6 7 8 9
 ```
 

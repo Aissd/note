@@ -10,6 +10,29 @@
 tooltip: {
 	confine: true // 解决显示不全的问题
 }
+
+饼图中间放数据
+title:{
+    text: sum + '万',
+    left: "center",
+    top: "50%",
+    textStyle:{
+        color: "#fff",
+        fontSize: 18,
+        align: "center"
+    }
+},
+graphic:{
+    type: "text",
+    left: "center",
+    top: "40%",
+    style: {
+        text: "账单总收入",
+        textAlign: "center",
+        fill: "#fff",
+        fontSize: 14
+    }
+}
 ```
 
 2、折线图

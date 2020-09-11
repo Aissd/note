@@ -8,6 +8,10 @@ watch: {
 		...
 	}
 }
+// 监听路由
+"$route"(newVal, oldVal) {
+	console.log(newVal, oldVal);
+}
 ```
 
 ​	2）初始化时，并不会触发watch
@@ -77,5 +81,16 @@ export default {
 	inheritAttrs: false,
 	...
 }
+```
+
+路由懒加载 - 给对应的js添加别名
+
+```
+const routes = [
+	{
+		...,
+		component: () => import(/* webpackChunkName: "about" */'../views/About.vue')
+	}
+];
 ```
 
