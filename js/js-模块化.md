@@ -1,46 +1,39 @@
-0、为什么要使用模块化
+### 为什么要使用模块化
+> 当项目变大时，没有模块化就会变得难以维护，需要用模块化的思想来组织代码
 
-```
-1）命名空间冲突：两个库可能会使用同一个名称，例如zepto，也被放在window.$下；
-2）无法合理管理项目的依赖和版本；
-3）无法方便地控制依赖的加载顺序
-当项目变大时，没有模块化就会变得难以维护，需要用模块化的思想来组织代码
-```
+	1）命名空间冲突：两个库可能会使用同一个名称，例如zepto，也被放在window.$下；
+	2）无法合理管理项目的依赖和版本；
+	3）无法方便地控制依赖的加载顺序
 
-1、模块化历史
 
-```
-AMD		  - require.js
-	采用了异步的方式去加载依赖的模块。
-	优点：
+### 模块化历史
+
+> AMD - require.js - 采用了异步的方式去加载依赖的模块。
+* 优点：
 	1）可在不转换代码的情况下直接在浏览器中运行；
 	2）可异步加载依赖
 	3）可并行加载多个依赖
 	4）代码可运行在浏览器环境和node.js环境
-	缺点：
+* 缺点：
 	1）js运行环境没有原生支持AMD，需要先导入实现AMD的库后才能正常使用。
-CMD		  - sea.js（淘宝）
-Commonjs  - node.js
-	通过require方法来同步加载依赖的其他模块，通过module.exports导出需要暴露的接口；
-	优点：
+> CMD - sea.js（淘宝）
+> Commonjs  - node.js - 通过require方法来同步加载依赖的其他模块，通过module.exports导出需要暴露的接口；
+* 优点：
 	1）代码可复用与node.js环境下运行
 	2）通过npm发布的第三方模块都采用commonjs规范
-	缺点：
-	1）无法直接运行在浏览器环境下，必须通过工具转换成标准的ES5
-UMD       - 支持AMD和Commonjs
-```
+* 缺点： 
+	无法直接运行在浏览器环境下，必须通过工具转换成标准的ES5
+> UMD - 支持AMD和Commonjs
 
-2、模块化特点
+### 模块化特点
 
-```
 1）有独立作用域
 2）可暴露出部分函数
 3）默认启用严格模式
 4）运作机制 - 后解析，无关顺序（是否标签渲染完了）【模块延迟解析】（所有模块先全部加载，解析，再工作）
 5）预解析（引入即执行，无论后面重复引入几次，都不再执行）
-```
 
-3、立即执行函数实现模块化
+### 立即执行函数实现模块化
 
 ```
 let module = (function() {
@@ -59,7 +52,7 @@ module.define('hd', [], function() {
 });
 ```
 
-4、模块的基本使用
+### 模块的基本使用
 
 ```
 // index.html
@@ -82,7 +75,7 @@ function show() {
 export { title, show }; // 只暴露了title，show函数，所以url引用不到的
 ```
 
-5、模块的批量导入
+### 模块的批量导入
 
 ```
 // 以4的index.html和hd.js举例
@@ -95,7 +88,7 @@ export { title, show }; // 只暴露了title，show函数，所以url引用不�
 // 这种方法有一定缺陷，打包工具会把hd.js里面暴露出来的方法全部打包，不管你用了几个，增加了文件的体积
 ```
 
-6、模块的导入的别名使用
+### 模块的导入的别名使用
 
 ```
 // 以4的index.html和hd.js举例
@@ -106,7 +99,7 @@ export { title, show }; // 只暴露了title，show函数，所以url引用不�
 </script>
 ```
 
-7、模块导出的别名使用
+### 模块导出的别名使用
 
 ```
 // 以4的index.html和hd.js举例
@@ -121,7 +114,7 @@ export { title as t, show };
 </script>
 ```
 
-8、default默认导出
+### default默认导出
 
 ```
 // a.js
@@ -133,7 +126,7 @@ export default Admin {};
 </script>
 ```
 
-9、混合导入导出
+### 混合导入导出
 
 ```
 // b.js
@@ -151,7 +144,7 @@ export default class User {
 
 ```
 
-10、模块的合并导出
+### 模块的合并导出
 
 ```
 // index.js
@@ -163,7 +156,7 @@ export { site, User, Admin };
 import { site, User, Admin } from 'index.js';
 ```
 
-11、按需动态加载模块
+### 按需动态加载模块
 
 ```
 1）import { site }, User from 'b.js'; // 这种引入方式必须放到最顶层操作；因此不能包裹到if，或者函数等模块里面，会报错；
@@ -172,4 +165,24 @@ import { site, User, Admin } from 'index.js';
 3）import('./a.js').then(module => {
 	console.log('---');
 });
+```
+
+### ES5的模块化
+```
+// 工具类 - tools.js
+var tools = (function() {
+	function total() {}
+	
+	return {
+		total: total
+	}
+})();
+
+// main.js
+;(function(doc, tools) {
+	function init();
+	function fn1() {}
+	init();
+})(document, tools);
+
 ```

@@ -4,8 +4,8 @@
 console.log([] instanceof Array);
 console.log([] instanceof Object);
 
-console.log([].__proto__ === Array.prototype);
-console.log([].__proto__.__proto__ === Object.prototype);
+console.log([].__proto__ === Array.prototype); // true
+console.log([].__proto__.__proto__ === Object.prototype); // true
 ```
 ###  手写instanceof
 
