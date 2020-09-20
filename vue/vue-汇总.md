@@ -28,16 +28,15 @@ xxx: [String, Number]
 
 Vue 提供了另外一种定义模板的方式，在 <script> 标签里使用 text/x-template 类型，并且指定一个 id，将这个 id 赋给 template
 
-```javascript
+```
+javascript
     <my-component></my-component>
     <script type="text/x-template" id="my-component">
         <div>你可以在这个 script 标签中书写模板的HTML</div>
     </script>
-```
-
-```javascript
+javascript
     Vue.component('my-component'.{
-        template:'#my-component'
+    	template:'#my-component'
     })
 ```
 
@@ -108,4 +107,9 @@ const routes = [
 ```
 <input  v-model.trim="msg" />
 {{ msg }} 
+```
+
+### vue版本升级
+```
+vue add vue-next
 ```

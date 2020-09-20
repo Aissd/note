@@ -1,4 +1,4 @@
-1、饼状图
+### 饼状图
 
 ```
 饼状图是不能通过grid调整边距的；
@@ -35,7 +35,7 @@ graphic:{
 }
 ```
 
-2、折线图
+### 折线图
 
 ```
 option = {
@@ -138,7 +138,7 @@ series: [
 
 
 
-3、柱状图
+### 柱状图
 
 ```
 yAxis: {
@@ -173,5 +173,39 @@ xAxis: {
 		}
 	}
 }
+series: [
+	{
+		data: [1,2,3,4,5,6],
+		type: 'bar',
+		// 柱状图上的数据
+        label: {
+            color: '#fff',
+            show: true,
+            position: 'top'
+        },
+        // 柱状图宽度
+        barWidth: 30,
+        // 显示柱状图的背景
+		showBackground: true,
+		// 柱状图的背景色
+        backgroundStyle: {
+           color: 'rgba(220, 220, 220, 0.8)'
+        },
+        // 柱状图样颜色
+        itemStyle: {
+            normal: {
+                // 随机显示
+                // color:function(d){
+                return "#"+Math.floor(Math.random()*(256*256*256-1)).toString(16);}
+                // 定制显示（按顺序）
+                color: params => { 
+                    return this.colorList[params.dataIndex] 
+                }
+            }
+        }
+	}
+]
 ```
 
+### echart 柱状图 每根柱子显示不同颜色
+https://www.cnblogs.com/rexyan/p/7267199.html

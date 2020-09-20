@@ -31,3 +31,9 @@
 * 兼容性区别：@import是CSS2.1出现的语法，IE5+才能识别；link不存在兼容问题
 * DOM可控性区别：link是html标签，可通过js操作DOM操作link；由于DOM方法是基于文档的，无法使用@import方式插入样式
 * 权重区别（有争议）：link引入的样式权重大于@import引入的样式
+
+### rem与em的区别
+> rem是基于html元素的字体大小来决定的
+> em根据使用它的元素的字体大小来决定的
+
+如果父元素font-size: 16px，子元素margin：0.8em，那么得到的大小就是0.8*16=12.8px

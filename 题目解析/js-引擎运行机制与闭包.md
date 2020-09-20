@@ -12,10 +12,6 @@ console.log(a.x);
 console.log(b);
 ```
 
-
-
-
-
 2、
 
 ```
@@ -31,10 +27,6 @@ let C = A(2);
 C(3);
 ```
 
-
-
-
-
 3、
 
 ```
@@ -46,10 +38,6 @@ function fn() {
 fn();
 console.log(a, b);
 ```
-
-
-
-
 
 4、
 
@@ -70,8 +58,6 @@ let fn = function(i) {
 }
 ```
 
-
-
 5、
 
 ```
@@ -80,8 +66,6 @@ var b = a;
 b = 13;
 console.log(a);
 ```
-
-
 
 6、
 
