@@ -21,3 +21,5 @@ null则全是0，所以被误认为是object
 这是引擎解析的一个bug
 ```
 
+### 转换为字符串
+> 因为null和undefined没有toString()方法，所以String()方法就直接返回了这两个值的字面量文本

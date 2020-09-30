@@ -1,6 +1,6 @@
 可以理解为一个永远不会重复的数字或字符串
 
-1、定义
+### 定义
 
 ```
 1)
@@ -17,14 +17,14 @@ let edu = Symbol.for('google');
 console.log(cms == edu); // true
 ```
 
-2、添加描述
+### 添加描述
 
 ```
 let hd = Symbol('online');
 console.log(hd.description); // online
 ```
 
-3、比较
+### 比较
 
 ```
 1）存储一个Symbol，然后取出来与自己比较，所以为true
@@ -34,15 +34,15 @@ console.log(val == val); // true
 console.log(Symbol('AA') == Symbol('AA')); // false
 ```
 
-4、消除魔术字符串
+### 消除魔术字符串
 
 ```
 
 ```
 
-5、symbol不能被new
+### symbol不能被new
 
-6、不参与for in/of遍历
+### 不参与for in/of遍历
 
 ```
 for in
@@ -57,19 +57,19 @@ JSON.stringify();
 Object.getOwnPropertySymbols()
 ```
 
-7、Symbol()创建出来的，不是Symbol的实例
+### Symbol()创建出来的，不是Symbol的实例
 
 ```
 Symbol() instanceof Symbol; // false
 ```
 
-8、Symbol的对象类实例
+### Symbol的对象类实例
 
 ```
 Object(Symbol()); // 
 ```
 
-9、Symbol不能参与计算 - 不能隐式转换
+### Symbol不能参与计算 - 不能隐式转换
 
 ```
 let n = Symbol();

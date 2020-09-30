@@ -1,4 +1,4 @@
-1、isNaN检测的机制
+### isNaN检测的机制
 
 ```
 1）首先检验当前要检验的值是否为有效数字类型，如果不是，浏览器会默认的把值转换为数字类型；
@@ -29,7 +29,7 @@
 2）当前检测的值已经是数字类型，是有效数字返回false，不是返回true（数字类型中只有NaN不是有效数字，其余都是有效数字）
 ```
 
-2、Number() , parseInt() , parseFloat() 区别
+### Number() , parseInt() , parseFloat() 区别
 
 ```
 区别在于字符串转换分析上：
@@ -42,13 +42,13 @@
 	parseFloat('13.5px'); // 13.5
 ```
 
-3、NaN的比较
+### NaN的比较
 
 ```
 console.log(NaN == NaN); // false - NaN和谁都不相等，包括自己
 ```
 
-4、检测是否为一个有效数字：
+### 检测是否为一个有效数字：
 
 ```
 if(!isNaN(num)) {
@@ -56,7 +56,7 @@ if(!isNaN(num)) {
 }
 ```
 
-5、最大安全数字
+### 最大安全数字
 
 ```
 Number.MAX_SAFE_INTEGER
@@ -69,7 +69,7 @@ Number.MAX_SAFE_INTEGER
 typeof 9007199254740991n; // "bigint" 
 ```
 
-6、数字类型有几个特殊的值
+### 数字类型有几个特殊的值
 
 ```
 1）NaN - 非有效数字
@@ -77,7 +77,7 @@ typeof 9007199254740991n; // "bigint"
 3）-Infinity - 无穷小，小于任何数值
 ```
 
-7、number和boolean用==比较时，会把boolean转换为number再比较值
+### number和boolean用==比较时，会把boolean转换为number再比较值
 
 ```
 for(let i = 0; i < 3; i++) {

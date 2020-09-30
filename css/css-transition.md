@@ -47,6 +47,15 @@ step-end
 ```
 transition-delay: 2s;
 transition-delay: 200ms;
+transition-delay: 200ms, 2s; // 第1个200ms，第2个2s，第3个200ms（循环）
+```
+
+### 组合设置
+```
+// 属性 过渡速度 持续时间 延迟时间
+transition: all linear 2s 1s;
+// 多个属性时
+transition: border-radius linear 2s 0s, background ease 2s 2s; 
 ```
 
 ### transitionend动画的API接口

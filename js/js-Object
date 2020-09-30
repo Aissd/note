@@ -170,3 +170,6 @@ console.log(obj2.getPName()); // 'jw'
 ```
 
 ### Object.defineProperty
+
+### Object.valueOf
+> 返回该对象的原始值

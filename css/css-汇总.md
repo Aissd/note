@@ -37,3 +37,37 @@
 > em根据使用它的元素的字体大小来决定的
 
 如果父元素font-size: 16px，子元素margin：0.8em，那么得到的大小就是0.8*16=12.8px
+
+
+### 三大类标签的区别以及相互转换
+
+```
+display: block/inline-block/inline
+```
+
+### display除了这些值还有哪些
+
+```
+none/flex/table/grid...
+```
+
+### none控制隐藏
+
+```
+visibility: hidden
+opacity: 0
+定位后调整z-index
+足够大的负margin或者负top值
+scale(0)
+```
+
+### visibility: hidden和display: none区别
+
+```
+opacity设置透明度，ie如何设置 => filter
+在项目中除了设置透明度还可以干啥？（背景）
+
+什么需求下用到了-margin？双飞翼布局的多种实现方案
+
+flex在什么时候应用
+```
