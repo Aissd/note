@@ -113,3 +113,8 @@ const routes = [
 ```
 vue add vue-next
 ```
+
+### v-on监听多个方法
+```
+<input type="text" v-on="{ input:onInput,focus:onFocus,blur:onBlur, }">
+```

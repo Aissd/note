@@ -1,4 +1,4 @@
-1、封装Date
+### 封装Date
 
 ```
 function dateFormat(date, format = "YYYY-MM-DD HH:mm:ss") {
@@ -18,7 +18,7 @@ function dateFormat(date, format = "YYYY-MM-DD HH:mm:ss") {
 console.log(dateFormat(new Date(), "YYYY年MM月DD日"));
 ```
 
-2、获取时间戳 - new Date()
+### 获取时间戳 - new Date()
 
 ```
 let date = new Date();
@@ -28,7 +28,7 @@ date * 1; // 1590021572058
 
 Date().getTime() 与 Date.now()等价，但建议使用Date.now()，性能相比会更好； 
 
-3、给给定的时间加秒
+### 给给定的时间加秒
 
 ```
 // time - 时间字符串 - '2020-07-23 15:15:15'

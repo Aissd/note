@@ -25,3 +25,18 @@ app.listen(3000, function() {
 ```
 http://localhost:3000
 ```
+
+### 搭建一个koa2服务
+```
+npm i koa-generator -g
+
+koa2 project-name
+
+cd project-name
+
+npm install 
+
+npm i koa2-cors -S // 解决跨域问题
+
+npm run dev
+```

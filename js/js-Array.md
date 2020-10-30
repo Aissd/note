@@ -1,8 +1,13 @@
 ### Array.from() - 转化成数组
 
 ```
-Array.from();
+Array.from(arrayLike, mapFn, thisArg);
+
 ```
+1）类数组的key必须为数字或字符串的阿拉伯数字，否则返回的数组都是undefined；
+2）属性中必须有length属性，否则返回的数组长度是0；
+3）新数组中的每个元素都会执行该回调函数，类似map方法；
+4）thisArg对象是执行回调函数时的this
 
 ### DOM节点调用数组的map方法
 
@@ -255,5 +260,10 @@ const oneDArr = twoDArr.reduce((accumulator, currentValue) => accumulator.concat
 
 console.log(oneDArr);
 // [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+
+例子5：求和
+var ary = [1,2,3,4,5];
+
+console.log(ary.reduce((t, i) => t += i));
 ```
 
