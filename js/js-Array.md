@@ -2,7 +2,6 @@
 
 ```
 Array.from(arrayLike, mapFn, thisArg);
-
 ```
 1）类数组的key必须为数字或字符串的阿拉伯数字，否则返回的数组都是undefined；
 2）属性中必须有length属性，否则返回的数组长度是0；
