@@ -74,7 +74,9 @@ option = {
            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
     },
     yAxis: {
-        type: 'value'
+    	show: true,
+        type: 'value',
+        data: [11,22,33,44]
     },
     axisLabel: {
         color: '#333'

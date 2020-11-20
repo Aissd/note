@@ -118,3 +118,5 @@ vue add vue-next
 ```
 <input type="text" v-on="{ input:onInput,focus:onFocus,blur:onBlur, }">
 ```
+
+### Vue的属性如果是通过$开头的，默认不会将这个属性挂载的vue实例上

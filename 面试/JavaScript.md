@@ -19,3 +19,4 @@ function f2() {
 }
 console.log(num); // 结果B
 ```
+
