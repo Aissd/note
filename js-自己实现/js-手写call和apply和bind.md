@@ -1,7 +1,9 @@
-### call
+### Function.prototype.call() -  call
+
 #### 特点
 * 可以改变当前函数的this
-* 还可以让当前函数执行
+* 绑定后立即函数执行
+* 可传入多个参数【apply需要传入一个数组】
 ```
 function fn() { console.log(this); }
 fn.call(); // 不传参数时，this指向window
@@ -67,7 +69,8 @@ Function.prototype.myApply = function(context, args) {
 	return r;
 }
 ```
-### bind原理
+
+### Function.prototype.bind - bind
 ```
 let obj = {
 	name: 'jw'
@@ -80,13 +83,14 @@ bindFn(); // 'jw'
 ```
 ### bind的特点
 > 1）bind方法可以绑定this指向
-> 2）bind方法返回一个绑定后的函数（高阶函数）
+> 2）bind方法返回一个绑定后的新函数（高阶函数），并拥有指定的this值和初始参数
 > 3）如果返回的绑定函数被new了，当前函数的this就是当前实例
+
 ### 手写bind - 方法一：
 ```
 Function.prototype.myBind = function(context) {
 	let that = this;
-	let bindArgs = Array.prototype.slice.call(arguments, 1); // 获取传入的其他参数，从第二个开始截取到最后（第一个是上下文）
+	let bindArgs = Array.prototype.slice.call(arguments, 1); // 获取传入的其他参数，从第二个开始截取到最后（第一个是上下文），返回一个新的数组
 	function Fn() {};
 	function fBound() {
 		let args = Array.prototype.slice.call(arguments);
