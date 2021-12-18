@@ -7,6 +7,7 @@ let user = new User(); // 通过构造器创建出来的实例，默认会帮实
 
 console.log(User.prototype === user.__proto__); // true
 console.log(User.__proto__ === user.__proto__); // false 这个是为何？【】
+console.log(User.__proto__ === user.constructor.__proto__); // true
 
 User.prototype.__proto__ === User.__proto__.__proto__; // true 均指向Object.prototype
 即：
@@ -42,5 +43,18 @@ Object.setPrototypeOf(man, person); // 将man的原型指向改为person的原�
 man.prototype === person.prototype; // true
 
 Object.getPrototypeOf(man); // 获取原型 打印出person对象 { name: 'person' }
+
+```
+
+
+### constructor引用
+```
+function User() {}
+User.prototype.constructor === User; // true 
+
+function User(name) {
+	this.name = name;
+}
+let u = new User.prototype.constructor('u'); // { name: 'u' }
 
 ```
