@@ -104,3 +104,27 @@ str.formatTime('{1}月{2}日 {3}时{4}分'); // "08月21日 07时09分"
 str.formatTime('{0}-{1}-{2}'); // "2020-08-21"
 ```
 
+9、endsWith
+```
+// 该方法区分大小写
+'./main.js'.endsWith('.js'); // true
+```
+```
+// 原理
+if (!String.prototype.endsWith) {
+	// search - 要判断的字符串
+	// this_len - 判断的结尾条件
+	String.prototype.endsWith = function(search, this_len) {
+		if (this_len === undefined || this_len > this.length) {
+			this_len = this.length;
+		}
+		return this.substring(this_len - search.length, this_len) === search;
+	};
+}
+```
+
+10、startsWith
+```
+// 该方法区分大小写
+'./main.js'.startsWith('.'); // true
+```

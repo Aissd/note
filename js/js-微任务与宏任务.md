@@ -1,5 +1,3 @@
-
-
 一、同步代码：promise的同步代码，顶层代码
 
 二、微任务：promise的resolve，promise的reject
