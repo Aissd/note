@@ -1,4 +1,4 @@
-1、交集
+1、并集
 
 ```
 let a1 = [1,2,3,1,3,6];
@@ -8,9 +8,11 @@ function union() {
 	let s2 = new Set(a2);
 	console.log([...new Set([...s1,...s2])]);
 }
+
+union(); // [1, 2, 3, 6, 4, 5]
 ```
 
-2、并集
+2、交集
 
 ```
 let a1 = [1,2,3,1,3,6];
@@ -21,6 +23,7 @@ function intersetcion() {
 		return new Set(a2).has(item);
 	});
 }
+intersetcion(); // [1, 2, 3]
 ```
 
 3、差集
@@ -34,5 +37,6 @@ function diff() {
 		return !new Set(a2).has(item);
 	});
 }
+diff(); // [6]
 ```
 

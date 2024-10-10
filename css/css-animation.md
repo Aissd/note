@@ -39,18 +39,18 @@ animation-direction: alternate;    	   // 0% - 100%，然后从100%逐渐回到0
 animation-direction: alternate-reverse; // 100% - 0%，然后从0%逐渐回到100%；
 ```
 
-### animation-fill-mode（）
+### animation-fill-mode
 
 ```
 animation-fill-mode: forwards; // 保留到100%帧的状态
 animation-fill-mode: backwards; // 当动画没动的时候，使用起始值的状态
+animation-fill-mode: none; // 不改变默认行为
+animation-fill-mode: both; // 表示上面两者模式都被应用
 ```
 
-### animation-timing-function（）
+### animation-timing-function
 
 ```
 animation-timing-function: steps(4, start); // 起始就运动，所有第一个step不可见，从第二个step开始，最后一个step可见
-
 animation-timing-function: steps(4, end); // 起始就是初始，开始可见，从第一个step开始，最后一个step不可见
 ```
-
